@@ -1,0 +1,171 @@
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*  градиент */
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #e94560);
+    background-size: 150% 150%;
+    animation: gradient 3s ease infinite;
+    color: white;
+    font-family: sans-serif;
+}
+
+/*  анимации */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1; /* Чтобы сетка была за текстом */
+}
+h1, p {
+    color: rgba(255, 255, 255, 0.8); /* 0.8 — это 80% прозрачности. 1 — плотный цвет, 0 — невидимый */
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+
+    /* Растягиваем неон: 
+       80% экрана будет залито мягким розовым свечением, 
+       и только в самых углах останется глубокая темнота */
+    background: radial-gradient(ellipse at center, 
+                rgba(233, 69, 96, 0.15) 0%,   /* Мягкий центр */
+                rgba(26, 26, 46, 0.8) 70%,    /* Переход */
+                #0a0a1a 95%);                 /* Темные углы */
+    
+    background-color: #1a1a2e;
+}
+
+h1 {
+    /* Добавим тексту чуть больше "веса", чтобы он не потерялся на широком фоне */
+    text-shadow: 0 0 30px rgba(233, 69, 96, 0.4);
+    font-size: 3rem; /* Делаем заголовок покрупнее */
+}
+
+body {
+    /* ... твой текущий код фона ... */
+    
+    padding: 0 10%; /* Добавляет 10% свободного места слева и справа */
+    box-sizing: border-box; /* Чтобы отступы не "ломали" размер экрана */
+    text-align: center;
+}
+
+/* Добавим ограничение для самого текста */
+h1, p {
+    max-width: 800px; /* Текст не будет шире этой линии, даже на огромном экране */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;       /* Это самое важное: позволяет карточкам прыгать на новую строку */
+    justify-content: center;
+    gap: 20px;             /* Расстояние между карточками */
+    margin-top: 30px;
+    width: 100%;           /* Чтобы контейнер занимал всю ширину */
+    max-width: 1000px;     /* Ограничим, чтобы на весь экран не разлетались */
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 150px;      /* Минимальная ширина, чтобы не сжимались */
+    flex: 1;               /* Позволяет карточкам расти и заполнять место */
+    max-width: 250px;      /* Но не дает им стать слишком огромными */
+    display: flex;
+    flex-direction: column; /* Текст будет сверху, полоска снизу */
+    align-items: center;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    background: rgba(233, 69, 96, 0.2); /* Подсветка при наведении */
+    transform: translateY(-5px); /* Карточка чуть подпрыгивает */
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.4); /* Неоновое свечение */
+}
+
+.skill-card span {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.skills-title {
+    margin-top: 20px;    /* Уменьшили отступ сверху, чтобы заголовок поднялся */
+    margin-bottom: 20px; /* Расстояние до карточек */
+    text-align: center;
+    /* ... остальные твои стили для шрифта и неона ... */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0;       /* Убираем лишний внешний отступ */
+    margin-bottom: 50px; /* Оставляем место до футера, чтобы не прилипало снизу */
+    width: 100%;
+}
+
+/* Эффект мигающей палочки в конце */
+.skills-title::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* Главный заголовок в самом верху */
+h1 {
+    color: #e94560 !important;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.8) !important;
+}
+
+/* Заголовок над карточками навыков */
+.skills-title {
+    color: #e94560 !important;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.8) !important;
+    text-align: center;
+}
+
+/* Обычный текст (про Сербию и планы) */
+p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Делаем основной текст более мягким */
+p {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Названия скиллов внутри карточек */
+.skill-card span {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.4);
+}
